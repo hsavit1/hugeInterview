@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 
-- (NSArray*)triggerAlertWithString:(NSString*)string;
+- (void)triggerAlertWithString:(NSString*)string;
 - (void)createCanvasCalculation;
 
 @end

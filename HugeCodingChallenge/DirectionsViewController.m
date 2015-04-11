@@ -26,14 +26,14 @@
 }
 
 - (IBAction)inputButtonPressed:(UIButton*)sender {
-    if ([self.inputField.text isEqualToString:@"Q"] | [self.inputField.text isEqualToString:@"q"]) {
-        [self.navigationController popViewControllerAnimated:YES];
+    if (self.inputField.text != nil) {
+        if ([[self.inputField.text uppercaseString] isEqualToString:@"Q"] ) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else{
+            [self createCanvasCalculation];
+        }
     }
-
-    else{
-        [self createCanvasCalculation];
-    }
-    
 }
 
 - (void)createCanvasCalculation{
@@ -47,8 +47,8 @@
         else{
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             CanvasViewController *cvc = [sb instantiateViewControllerWithIdentifier:@"canvas"];
-            cvc.width = arr[0];
-            cvc.height = arr[1];
+            cvc.canvasWidth = arr[0];
+            cvc.canvasHeight = arr[1];
             [self.navigationController showViewController:cvc sender:self];
         }
     }
@@ -64,7 +64,6 @@
     else{
         [self triggerAlertWithString:@"Invalid Input. Please create a canvas"];
     }
-    
 }
 
 - (void)triggerAlertWithString:(NSString*)string{

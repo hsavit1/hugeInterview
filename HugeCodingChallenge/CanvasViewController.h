@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CanvasViewController : UIViewController
+@interface CanvasViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *canvasTextField;
 
-@property (nonatomic, strong) NSNumber *width;
-@property (nonatomic, strong) NSNumber *height;
+@property (nonatomic, strong) NSNumber *canvasWidth;
+@property (nonatomic, strong) NSNumber *canvasHeight;
+//@property (nonatomic, strong) NSMutableArray *
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
