@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		5CE757C01AD865B0000E06D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757BF1AD865B0000E06D6 /* main.m */; };
 		5CE757C31AD865B0000E06D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757C21AD865B0000E06D6 /* AppDelegate.m */; };
-		5CE757C61AD865B0000E06D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757C51AD865B0000E06D6 /* ViewController.m */; };
+		5CE757C61AD865B0000E06D6 /* DirectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757C51AD865B0000E06D6 /* DirectionsViewController.m */; };
 		5CE757C91AD865B0000E06D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE757C71AD865B0000E06D6 /* Main.storyboard */; };
 		5CE757CB1AD865B0000E06D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE757CA1AD865B0000E06D6 /* Images.xcassets */; };
 		5CE757CE1AD865B0000E06D6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CE757CC1AD865B0000E06D6 /* LaunchScreen.xib */; };
 		5CE757DA1AD865B0000E06D6 /* HugeCodingChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757D91AD865B0000E06D6 /* HugeCodingChallengeTests.m */; };
+		5CE757E51AD98B19000E06D6 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757E41AD98B19000E06D6 /* CanvasViewController.m */; };
+		5CE757E81AD99AF7000E06D6 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757E71AD99AF7000E06D6 /* StartViewController.m */; };
+		5CE757F81AD9A51F000E06D6 /* CanvasCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757F71AD9A51F000E06D6 /* CanvasCalculation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +35,20 @@
 		5CE757BF1AD865B0000E06D6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5CE757C11AD865B0000E06D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5CE757C21AD865B0000E06D6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5CE757C41AD865B0000E06D6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5CE757C51AD865B0000E06D6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5CE757C41AD865B0000E06D6 /* DirectionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectionsViewController.h; sourceTree = "<group>"; };
+		5CE757C51AD865B0000E06D6 /* DirectionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DirectionsViewController.m; sourceTree = "<group>"; };
 		5CE757C81AD865B0000E06D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CE757CA1AD865B0000E06D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5CE757CD1AD865B0000E06D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5CE757D31AD865B0000E06D6 /* HugeCodingChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HugeCodingChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE757D81AD865B0000E06D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CE757D91AD865B0000E06D6 /* HugeCodingChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HugeCodingChallengeTests.m; sourceTree = "<group>"; };
+		5CE757E31AD98B19000E06D6 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
+		5CE757E41AD98B19000E06D6 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
+		5CE757E61AD99AF7000E06D6 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		5CE757E71AD99AF7000E06D6 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		5CE757F61AD9A51F000E06D6 /* CanvasCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasCalculation.h; sourceTree = "<group>"; };
+		5CE757F71AD9A51F000E06D6 /* CanvasCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasCalculation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +90,10 @@
 		5CE757BC1AD865B0000E06D6 /* HugeCodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				5CE757C11AD865B0000E06D6 /* AppDelegate.h */,
-				5CE757C21AD865B0000E06D6 /* AppDelegate.m */,
-				5CE757C41AD865B0000E06D6 /* ViewController.h */,
-				5CE757C51AD865B0000E06D6 /* ViewController.m */,
-				5CE757C71AD865B0000E06D6 /* Main.storyboard */,
-				5CE757CA1AD865B0000E06D6 /* Images.xcassets */,
-				5CE757CC1AD865B0000E06D6 /* LaunchScreen.xib */,
+				5CE757EB1AD99E33000E06D6 /* Storyboard */,
+				5CE757F51AD9A28B000E06D6 /* Model */,
+				5CE757EA1AD99E29000E06D6 /* View */,
+				5CE757E91AD99B02000E06D6 /* Controller */,
 				5CE757BD1AD865B0000E06D6 /* Supporting Files */,
 			);
 			path = HugeCodingChallenge;
@@ -96,6 +102,9 @@
 		5CE757BD1AD865B0000E06D6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5CE757CA1AD865B0000E06D6 /* Images.xcassets */,
+				5CE757C11AD865B0000E06D6 /* AppDelegate.h */,
+				5CE757C21AD865B0000E06D6 /* AppDelegate.m */,
 				5CE757BE1AD865B0000E06D6 /* Info.plist */,
 				5CE757BF1AD865B0000E06D6 /* main.m */,
 			);
@@ -117,6 +126,44 @@
 				5CE757D81AD865B0000E06D6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CE757E91AD99B02000E06D6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5CE757E61AD99AF7000E06D6 /* StartViewController.h */,
+				5CE757E71AD99AF7000E06D6 /* StartViewController.m */,
+				5CE757C41AD865B0000E06D6 /* DirectionsViewController.h */,
+				5CE757C51AD865B0000E06D6 /* DirectionsViewController.m */,
+				5CE757E31AD98B19000E06D6 /* CanvasViewController.h */,
+				5CE757E41AD98B19000E06D6 /* CanvasViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5CE757EA1AD99E29000E06D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5CE757EB1AD99E33000E06D6 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5CE757C71AD865B0000E06D6 /* Main.storyboard */,
+				5CE757CC1AD865B0000E06D6 /* LaunchScreen.xib */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		5CE757F51AD9A28B000E06D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5CE757F61AD9A51F000E06D6 /* CanvasCalculation.h */,
+				5CE757F71AD9A51F000E06D6 /* CanvasCalculation.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CE757C61AD865B0000E06D6 /* ViewController.m in Sources */,
+				5CE757E51AD98B19000E06D6 /* CanvasViewController.m in Sources */,
+				5CE757C61AD865B0000E06D6 /* DirectionsViewController.m in Sources */,
+				5CE757E81AD99AF7000E06D6 /* StartViewController.m in Sources */,
 				5CE757C31AD865B0000E06D6 /* AppDelegate.m in Sources */,
+				5CE757F81AD9A51F000E06D6 /* CanvasCalculation.m in Sources */,
 				5CE757C01AD865B0000E06D6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

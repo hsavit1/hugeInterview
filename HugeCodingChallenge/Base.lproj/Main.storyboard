@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ia4-Ye-ijs">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +17,437 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello! Press the button below to start the program" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-Km-Xhe">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="DZi-8W-IrA"/>
+                                    <constraint firstAttribute="height" constant="86" id="l6m-tS-zkc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DZi-8W-IrA"/>
+                                        <exclude reference="l6m-tS-zkc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="DZi-8W-IrA"/>
+                                        <include reference="l6m-tS-zkc"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppe-Te-E2Z">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gpI-Gd-hdl" kind="show" id="ecb-XF-H95"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="KQo-Km-Xhe" secondAttribute="centerX" id="CVu-ca-tFf"/>
+                            <constraint firstItem="ppe-Te-E2Z" firstAttribute="centerX" secondItem="KQo-Km-Xhe" secondAttribute="centerX" constant="0.5" id="E43-or-7v3"/>
+                            <constraint firstItem="ppe-Te-E2Z" firstAttribute="top" secondItem="KQo-Km-Xhe" secondAttribute="bottom" constant="44" id="bCQ-q7-VZ5"/>
+                            <constraint firstItem="KQo-Km-Xhe" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="147" id="nre-6g-2NT"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KQo-Km-Xhe"/>
+                                <exclude reference="ppe-Te-E2Z"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="CVu-ca-tFf"/>
+                                <exclude reference="nre-6g-2NT"/>
+                                <exclude reference="E43-or-7v3"/>
+                                <exclude reference="bCQ-q7-VZ5"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="KQo-Km-Xhe"/>
+                                <include reference="ppe-Te-E2Z"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="CVu-ca-tFf"/>
+                                <include reference="nre-6g-2NT"/>
+                                <include reference="E43-or-7v3"/>
+                                <include reference="bCQ-q7-VZ5"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="L85-Gi-lwR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1135.5" y="417.75"/>
+        </scene>
+        <!--Create Canvas-->
+        <scene sceneID="aSI-KD-fZu">
+            <objects>
+                <viewController id="gpI-Gd-hdl" customClass="DirectionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tty-ic-DDZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="MG3-nc-2rW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cRg-9Q-Eye">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MNg-Nc-wkO">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3H-rH-IJj">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="bOJ-Cx-O6d"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="yOq-WD-PbD"/>
+                                </constraints>
+                                <state key="normal" title="Input information">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bOJ-Cx-O6d"/>
+                                        <exclude reference="yOq-WD-PbD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="bOJ-Cx-O6d"/>
+                                        <include reference="yOq-WD-PbD"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="inputButtonPressed:" destination="gpI-Gd-hdl" eventType="touchUpInside" id="wrL-HU-eRi"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8nW-ym-C5T">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8nW-ym-C5T" secondAttribute="height" multiplier="15:16" id="cru-fF-zWs"/>
+                                    <constraint firstAttribute="width" constant="300" id="sMs-rX-7a3">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="320"/>
+                                    </constraint>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Please read the following directions: when you are finished reading, press the "input information" button above to input a command                                                                              </string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="C w h">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> -&gt; Should create a new canvas of width w and height h.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="L x1 y1 x2 y2">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> -&gt; Should create a new line from (x1,y1) to (x2,y2). Currently only
+horizontal or vertical lines are supported. Horizontal and vertical lines
+will be drawn using the 'x' character.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="R x1 y1 x2 y2">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> -&gt; Should create a new rectangle, whose upper left corner is (x1,y1) and lower right corner is (x2,y2). Horizontal and vertical lines will be drawn
+using the 'x' character.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="B x y c">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> -&gt; Should fill the entire area connected to (x,y) with "colour" c. The
+behaviour of this is the same as that of the "bucket fill" tool in paint
+programs.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Q">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" -&gt; Should quit the program">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cru-fF-zWs"/>
+                                        <exclude reference="sMs-rX-7a3"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <mask key="constraints">
+                                        <exclude reference="cru-fF-zWs"/>
+                                        <exclude reference="sMs-rX-7a3"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H3H-rH-IJj" firstAttribute="trailing" secondItem="cRg-9Q-Eye" secondAttribute="trailingMargin" id="Bzi-Jy-49f"/>
+                            <constraint firstItem="H3H-rH-IJj" firstAttribute="leading" secondItem="MNg-Nc-wkO" secondAttribute="trailing" constant="4" id="Mgd-lB-WPW"/>
+                            <constraint firstItem="MNg-Nc-wkO" firstAttribute="top" secondItem="tty-ic-DDZ" secondAttribute="bottom" constant="8" id="POn-Av-ZGS"/>
+                            <constraint firstItem="8nW-ym-C5T" firstAttribute="leading" secondItem="cRg-9Q-Eye" secondAttribute="leadingMargin" constant="-16" id="VYB-qk-ts6"/>
+                            <constraint firstItem="MG3-nc-2rW" firstAttribute="top" secondItem="8nW-ym-C5T" secondAttribute="bottom" id="Wuv-sm-5QQ"/>
+                            <constraint firstItem="H3H-rH-IJj" firstAttribute="top" secondItem="tty-ic-DDZ" secondAttribute="bottom" constant="8" id="YFK-t3-CVf"/>
+                            <constraint firstItem="8nW-ym-C5T" firstAttribute="top" secondItem="MNg-Nc-wkO" secondAttribute="bottom" constant="8" id="Zrk-tg-S76"/>
+                            <constraint firstItem="MNg-Nc-wkO" firstAttribute="leading" secondItem="cRg-9Q-Eye" secondAttribute="leadingMargin" constant="-3" id="iSs-5N-YQb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8nW-ym-C5T" secondAttribute="trailing" constant="-16" id="krH-Yi-FyN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="MNg-Nc-wkO"/>
+                                <exclude reference="H3H-rH-IJj"/>
+                                <exclude reference="8nW-ym-C5T"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="POn-Av-ZGS"/>
+                                <exclude reference="iSs-5N-YQb"/>
+                                <exclude reference="VYB-qk-ts6"/>
+                                <exclude reference="Zrk-tg-S76"/>
+                                <exclude reference="krH-Yi-FyN"/>
+                                <exclude reference="Bzi-Jy-49f"/>
+                                <exclude reference="Mgd-lB-WPW"/>
+                                <exclude reference="YFK-t3-CVf"/>
+                                <exclude reference="Wuv-sm-5QQ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="MNg-Nc-wkO"/>
+                                <include reference="H3H-rH-IJj"/>
+                                <include reference="8nW-ym-C5T"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="POn-Av-ZGS"/>
+                                <include reference="iSs-5N-YQb"/>
+                                <include reference="VYB-qk-ts6"/>
+                                <include reference="Zrk-tg-S76"/>
+                                <include reference="krH-Yi-FyN"/>
+                                <include reference="Bzi-Jy-49f"/>
+                                <include reference="Mgd-lB-WPW"/>
+                                <include reference="YFK-t3-CVf"/>
+                                <include reference="Wuv-sm-5QQ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Canvas" id="ODZ-V1-Dqr"/>
+                    <connections>
+                        <outlet property="inputField" destination="MNg-Nc-wkO" id="oqS-sJ-gN6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oAD-R3-g0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1926" y="417.75"/>
+        </scene>
+        <!--Canvas View Controller-->
+        <scene sceneID="uIn-3B-Em1">
+            <objects>
+                <viewController storyboardIdentifier="canvas" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3K4-RD-two" customClass="CanvasViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="69d-gh-wXE"/>
+                        <viewControllerLayoutGuide type="bottom" id="q9b-3r-vd8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VET-Uk-qet">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DW8-Mb-NsZ">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OW2-HH-eff">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="Kpk-5Q-bWo"/>
+                                </constraints>
+                                <state key="normal" title="Add Instruction">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Kpk-5Q-bWo"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Kpk-5Q-bWo"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="addInstructionPressed:" destination="3K4-RD-two" eventType="touchUpInside" id="WQM-Ih-hX2"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wmJ-sL-Gs4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="m5O-K6-vPJ">
+                                    <size key="itemSize" width="30" height="30"/>
+                                    <size key="headerReferenceSize" width="5" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YLJ-D6-vI2">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RNm-Sg-G4P">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OW2-HH-eff" firstAttribute="top" secondItem="69d-gh-wXE" secondAttribute="bottom" constant="22" id="AaE-Fs-I3f"/>
+                            <constraint firstItem="wmJ-sL-Gs4" firstAttribute="top" secondItem="DW8-Mb-NsZ" secondAttribute="bottom" constant="27" id="CMD-3x-00T"/>
+                            <constraint firstItem="DW8-Mb-NsZ" firstAttribute="leading" secondItem="VET-Uk-qet" secondAttribute="leadingMargin" constant="-13" id="KfJ-Bc-kXv"/>
+                            <constraint firstItem="wmJ-sL-Gs4" firstAttribute="leading" secondItem="VET-Uk-qet" secondAttribute="leadingMargin" constant="-16" id="WQi-U6-2eD"/>
+                            <constraint firstItem="DW8-Mb-NsZ" firstAttribute="top" secondItem="69d-gh-wXE" secondAttribute="bottom" constant="22" id="cHM-Jg-w3d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wmJ-sL-Gs4" secondAttribute="trailing" constant="-16" id="j2R-0l-UOh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OW2-HH-eff" secondAttribute="trailing" constant="-13" id="qy0-Xz-MbN"/>
+                            <constraint firstItem="OW2-HH-eff" firstAttribute="leading" secondItem="DW8-Mb-NsZ" secondAttribute="trailing" constant="8" id="xId-SM-TzY"/>
+                            <constraint firstItem="q9b-3r-vd8" firstAttribute="top" secondItem="wmJ-sL-Gs4" secondAttribute="bottom" id="yfg-5b-SaP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="DW8-Mb-NsZ"/>
+                                <exclude reference="OW2-HH-eff"/>
+                                <exclude reference="wmJ-sL-Gs4"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="KfJ-Bc-kXv"/>
+                                <exclude reference="cHM-Jg-w3d"/>
+                                <exclude reference="CMD-3x-00T"/>
+                                <exclude reference="WQi-U6-2eD"/>
+                                <exclude reference="j2R-0l-UOh"/>
+                                <exclude reference="AaE-Fs-I3f"/>
+                                <exclude reference="qy0-Xz-MbN"/>
+                                <exclude reference="xId-SM-TzY"/>
+                                <exclude reference="yfg-5b-SaP"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="DW8-Mb-NsZ"/>
+                                <include reference="OW2-HH-eff"/>
+                                <include reference="wmJ-sL-Gs4"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="KfJ-Bc-kXv"/>
+                                <include reference="cHM-Jg-w3d"/>
+                                <include reference="CMD-3x-00T"/>
+                                <include reference="WQi-U6-2eD"/>
+                                <include reference="j2R-0l-UOh"/>
+                                <include reference="AaE-Fs-I3f"/>
+                                <include reference="qy0-Xz-MbN"/>
+                                <include reference="xId-SM-TzY"/>
+                                <include reference="yfg-5b-SaP"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="4QS-Hs-VDm">
+                        <barButtonItem key="leftBarButtonItem" title="Change Canvas" id="pmh-XY-ISY">
+                            <connections>
+                                <action selector="restartButtonPressed:" destination="3K4-RD-two" id="Buk-Y2-Tpr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="canvasTextField" destination="DW8-Mb-NsZ" id="91M-l2-cJ8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AmY-wC-APc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2752.5" y="417.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9yx-oq-Dwd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ia4-Ye-ijs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="grC-15-gBR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="ywO-nz-743"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmD-hk-xH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="336" y="417.75"/>
         </scene>
     </scenes>
 </document>

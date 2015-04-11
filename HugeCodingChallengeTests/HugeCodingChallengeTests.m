@@ -37,4 +37,21 @@
     }];
 }
 
+
+//XCTFail (format…)
+//XCTAssertNil (a1, format…)
+//XCTAssertNotNil (a1, format…)
+//XCTAssert (a1, format…)
+//XCTAssertTrue (a1, format…)
+//XCTAssertFalse (a1, format…)
+//XCTAssertEqualObjects (a1, a2, format…)
+//XCTAssertEquals (a1, a2, format…)
+//XCTAssertEqualsWithAccuracy (a1, a2, accuracy, format…)
+//XCTAssertThrows (expression, format…)
+//XCTAssertThrowsSpecific (expression, specificException, format…)
+//XCTAssertThrowsSpecificNamed (expression, specificException, exceptionName, format…)
+//XCTAssertNoThrow (expression, format…)
+//XCTAssertNoThrowSpecific (expression, specificException, format…)
+//XCTAssertNoThrowSpecificNamed (expression, specificExcepton, exceptionName, format…)
+
 @end

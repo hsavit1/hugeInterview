@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  StartViewController.h
 //  HugeCodingChallenge
 //
-//  Created by Henry Savit on 4/10/15.
+//  Created by Henry Savit on 4/11/15.
 //  Copyright (c) 2015 Henry Savit. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface StartViewController : UIViewController
 
 @end
-
