@@ -210,7 +210,15 @@
 //    if ([self.collectionView cellForItemAtIndexPath:indexPath] == nil) {
 //        return;
 //    }
-     if(![((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text isEqualToString:@""]){// && (currentColor != nil)) {
+    
+//    NSLog(@"%li", (long)indexPath.item);
+//    NSLog(@"%li", (long)indexPath.section);
+    
+    //the problem is that it cant find the cell!
+    
+    //note: going by the initial instructions: the program works if i do this
+    //c 20 15 ----- instead of c 20 4. WHY
+    if(![((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text isEqualToString:@" "]){// && (currentColor != nil)) {
         return;
     }
     else if ([[self.collectionView cellForItemAtIndexPath:indexPath].reuseIdentifier isEqualToString:@"Xcell"]) {
@@ -273,8 +281,11 @@
     if([self.indicator isEqualToString:@"X"])
         newCell.letterLabel.text = self.indicator;
     else
-        newCell.letterLabel.text = @"";
+        newCell.letterLabel.text = @" ";
     
+    if (newCell == nil) {
+        [self.collectionView layoutIfNeeded];
+    }
     return newCell;
 }
 @end
