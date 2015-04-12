@@ -17,8 +17,8 @@
 		5CE757E51AD98B19000E06D6 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757E41AD98B19000E06D6 /* CanvasViewController.m */; };
 		5CE757E81AD99AF7000E06D6 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757E71AD99AF7000E06D6 /* StartViewController.m */; };
 		5CE757F81AD9A51F000E06D6 /* CanvasCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757F71AD9A51F000E06D6 /* CanvasCalculation.m */; };
-		5CE757FB1AD9C4CE000E06D6 /* CanvasCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757FA1AD9C4CE000E06D6 /* CanvasCollectionViewCell.m */; };
 		5CE757FE1AD9DA97000E06D6 /* CheckIfValid.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757FD1AD9DA97000E06D6 /* CheckIfValid.m */; };
+		5CE758011ADAE1DB000E06D6 /* CanvaslCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE758001ADAE1DB000E06D6 /* CanvaslCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +51,10 @@
 		5CE757E71AD99AF7000E06D6 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		5CE757F61AD9A51F000E06D6 /* CanvasCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasCalculation.h; sourceTree = "<group>"; };
 		5CE757F71AD9A51F000E06D6 /* CanvasCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasCalculation.m; sourceTree = "<group>"; };
-		5CE757F91AD9C4CE000E06D6 /* CanvasCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasCollectionViewCell.h; sourceTree = "<group>"; };
-		5CE757FA1AD9C4CE000E06D6 /* CanvasCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasCollectionViewCell.m; sourceTree = "<group>"; };
 		5CE757FC1AD9DA97000E06D6 /* CheckIfValid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckIfValid.h; sourceTree = "<group>"; };
 		5CE757FD1AD9DA97000E06D6 /* CheckIfValid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckIfValid.m; sourceTree = "<group>"; };
+		5CE757FF1ADAE1DB000E06D6 /* CanvaslCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvaslCollectionViewCell.h; sourceTree = "<group>"; };
+		5CE758001ADAE1DB000E06D6 /* CanvaslCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvaslCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +150,8 @@
 		5CE757EA1AD99E29000E06D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5CE757F91AD9C4CE000E06D6 /* CanvasCollectionViewCell.h */,
-				5CE757FA1AD9C4CE000E06D6 /* CanvasCollectionViewCell.m */,
+				5CE757FF1ADAE1DB000E06D6 /* CanvaslCollectionViewCell.h */,
+				5CE758001ADAE1DB000E06D6 /* CanvaslCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -277,11 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CE757E51AD98B19000E06D6 /* CanvasViewController.m in Sources */,
-				5CE757FB1AD9C4CE000E06D6 /* CanvasCollectionViewCell.m in Sources */,
 				5CE757C61AD865B0000E06D6 /* DirectionsViewController.m in Sources */,
 				5CE757E81AD99AF7000E06D6 /* StartViewController.m in Sources */,
 				5CE757C31AD865B0000E06D6 /* AppDelegate.m in Sources */,
 				5CE757F81AD9A51F000E06D6 /* CanvasCalculation.m in Sources */,
+				5CE758011ADAE1DB000E06D6 /* CanvaslCollectionViewCell.m in Sources */,
 				5CE757FE1AD9DA97000E06D6 /* CheckIfValid.m in Sources */,
 				5CE757C01AD865B0000E06D6 /* main.m in Sources */,
 			);

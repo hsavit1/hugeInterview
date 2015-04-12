@@ -8,18 +8,18 @@
 
 #import "CanvasViewController.h"
 #import "CanvasCalculation.h"
-#import "CanvasCollectionViewCell.h"
 
 @interface CanvasViewController ()
 
 @property (nonatomic, strong) NSString *indicator;
-
+@property (nonatomic, strong) NSMutableArray *indexPathsSaved;
 @end
 
 @implementation CanvasViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.indexPathsSaved = [[NSMutableArray alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,27 +69,29 @@
                 NSInteger x1 = [arr[0] integerValue];
                 NSInteger x2 = [arr[2] integerValue];
                 
-                if (x1 == x2) { //vertical. section changes, items stay
-                    
+                if (x1 == x2) {
                     NSMutableArray *indexPaths = [[NSMutableArray alloc]initWithObjects:nil];
-                    
-                    for (int y1; y1 < y2; ++y1){
-                        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:(y1-1) inSection:(x1-1)];
+                    for (y1; y1 <= y2; ++y1){
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:y1-1 inSection:x1-1];
+                        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+
                         [indexPaths addObject:indexPath];
                         self.indicator = @"X";
                     }
+//                    self.indexPathsSaved = indexPaths;
+//                    [self.collectionView reloadData];
+                    
                     [self.collectionView reloadItemsAtIndexPaths:indexPaths];
-                    self.indicator = nil;
+                        self.indicator = nil;
                 }
-                else if(y1 == y2){//horizontal. section stays, items change
-                    
+                else if(y1 == y2){
                     NSMutableArray *indexPaths = [[NSMutableArray alloc]init];
-                    
-                    for (int x1; x1 < x2; ++x1){
-                        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:(x1-1) inSection:(y1-1)];
+                    for (x1; x1 <= x2; ++x1){
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:y1-1 inSection:x1-1];
                         [indexPaths addObject:indexPath];
                         self.indicator = @"X";
                     }
+//                    self.indexPathsSaved = indexPaths;
                     [self.collectionView reloadItemsAtIndexPaths:indexPaths];
                     self.indicator = nil;
                 }
@@ -107,7 +109,44 @@
         }
         else{
             if ([cc checkIfRectangleValid:arr withCanvasWidth:self.canvasWidth withCanvasHeight:self.canvasHeight]) {
-                
+                NSInteger y1 = [arr[1] integerValue];
+                NSInteger y2 = [arr[3] integerValue];
+                NSInteger x1 = [arr[0] integerValue];
+                NSInteger x2 = [arr[2] integerValue];
+            
+                NSInteger y1Copy = y1;
+                NSInteger y2Copy = y2;
+                NSInteger x1Copy = x1;
+                NSInteger x2Copy = x2;
+                NSMutableArray *indexPaths = [[NSMutableArray alloc]init];
+            
+                NSIndexPath *indexPathTopLeft = [NSIndexPath indexPathForItem:(y1-1) inSection:(x1-1)];
+                NSIndexPath *indexPathTopRight = [NSIndexPath indexPathForItem:(y1-1) inSection:(x2-1)];
+                NSIndexPath *indexPathBottomLeft = [NSIndexPath indexPathForItem:(y2-1) inSection:(x1-1)];
+                NSIndexPath *indexPathBottomRight = [NSIndexPath indexPathForItem:(y2-1) inSection:(x2-1)];
+            
+            [indexPaths addObject:indexPathTopLeft];
+            [indexPaths addObject:indexPathTopRight];
+            [indexPaths addObject:indexPathBottomLeft];
+            [indexPaths addObject:indexPathBottomRight];
+            
+                for (y1Copy; y1Copy < y2Copy-1; ++y1Copy) {
+                    NSIndexPath *indexPathLeft = [NSIndexPath indexPathForItem:(y1Copy) inSection:(x1Copy-1)];
+                    NSIndexPath *indexPathRight = [NSIndexPath indexPathForItem:(y1Copy) inSection:(x2Copy-1)];
+                    [indexPaths addObject:indexPathLeft];
+                    [indexPaths addObject:indexPathRight];
+                }
+                for (x1; x1 < x2-1; ++x1) {
+                    NSIndexPath *indexPathTop = [NSIndexPath indexPathForItem:y1-1 inSection:x1];
+                    NSIndexPath *indexPathBottom = [NSIndexPath indexPathForItem:y2-1 inSection:x1];
+                    [indexPaths addObject:indexPathTop];
+                    [indexPaths addObject:indexPathBottom];
+                }
+
+
+                self.indicator = @"X";
+                [self.collectionView reloadItemsAtIndexPaths:indexPaths];
+
             }
             else{
                 [self triggerAlertWithString:@"invalid input. need 4 valid numbers within range"];
@@ -159,7 +198,6 @@
 
 #pragma Mark collection view dataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView {
-    // _data is a class member variable that contains one array per section.
     return [self.canvasWidth integerValue];
 }
 
@@ -170,11 +208,12 @@
 #pragma Mark collection view delegate
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CanvasCollectionViewCell* newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    if (!newCell) {
+    UICollectionViewCell* newCell;
+    
+    if([self.indicator isEqualToString:@"X"])
+        newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Xcell" forIndexPath:indexPath];
+    else
         newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    }
-    newCell.horOrVertLabel.text = self.indicator;
     
     return newCell;
 }

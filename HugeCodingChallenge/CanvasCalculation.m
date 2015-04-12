@@ -48,7 +48,6 @@
 - (BOOL)checkIfLineValid:(NSArray*)arr withCanvasWidth:(NSNumber*)width withCanvasHeight:(NSNumber*)height{
     
     if ([self checkIfNumericString:arr]) {
-
         //check if in bounds
         if ( [arr[0] integerValue] > [width integerValue] ){
             return NO;
@@ -62,27 +61,6 @@
         else if( [arr[3] integerValue] > [height integerValue]){
             return NO;
         }
-        
-//        //check if horizontal or vertical line
-//        if([ [arr[0] integerValue] == [arr[2] integerValue] ]){ //vertical
-//            if (arr[1] == arr[3]) {
-//                return NO;
-//            }
-//            else{
-//                return YES;
-//            }
-//        }
-//        else if(arr[0] == arr[2]){ //horizontal
-//            if (arr[1] == arr[3]) {
-//                return NO;
-//            }
-//            else{
-//                return YES;
-//            }
-//        }
-//        else{
-//            return NO;
-//        }
     }
     else{
         return NO;
@@ -94,16 +72,22 @@
     
     if ([self checkIfNumericString:arr]) {
         //check if in bounds
-        if ((arr[0] || arr[2]) > (int)width) {
+        if ( [arr[0] integerValue] > [width integerValue] ){
             return NO;
         }
-        else if((arr[1] || arr[3]) > (int)height) {
+        else if ( [arr[2] integerValue] > [width integerValue])  {
             return NO;
         }
-        else if(arr[0] >= arr[2]){
+        else if( [arr[1] integerValue] > [height integerValue] ) {
             return NO;
         }
-        else if(arr[1] >= arr[3]){
+        else if( [arr[3] integerValue] > [height integerValue]){
+            return NO;
+        }
+        else if ( [arr[0] integerValue] > [arr[2] integerValue])  {
+            return NO;
+        }
+        else if( [arr[1] integerValue] > [arr[3] integerValue] ) {
             return NO;
         }
         else{
