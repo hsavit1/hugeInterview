@@ -12,6 +12,8 @@
 
 @interface CanvasViewController ()
 
+@property (nonatomic, strong) NSString *indicator;
+
 @end
 
 @implementation CanvasViewController
@@ -49,6 +51,7 @@
         else{
             self.canvasWidth = arr[0];
             self.canvasHeight = arr[1];
+            self.indicator = nil;
             [self.collectionView reloadData];
         }
     }
@@ -61,6 +64,35 @@
         else{
             if ([cc checkIfLineValid:arr withCanvasWidth:self.canvasWidth withCanvasHeight:self.canvasHeight]) {
                 
+                NSInteger y1 = [arr[1] integerValue];
+                NSInteger y2 = [arr[3] integerValue];
+                NSInteger x1 = [arr[0] integerValue];
+                NSInteger x2 = [arr[2] integerValue];
+                
+                if (x1 == x2) { //vertical. section changes, items stay
+                    
+                    NSMutableArray *indexPaths = [[NSMutableArray alloc]initWithObjects:nil];
+                    
+                    for (int y1; y1 < y2; ++y1){
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:(y1-1) inSection:(x1-1)];
+                        [indexPaths addObject:indexPath];
+                        self.indicator = @"X";
+                    }
+                    [self.collectionView reloadItemsAtIndexPaths:indexPaths];
+                    self.indicator = nil;
+                }
+                else if(y1 == y2){//horizontal. section stays, items change
+                    
+                    NSMutableArray *indexPaths = [[NSMutableArray alloc]init];
+                    
+                    for (int x1; x1 < x2; ++x1){
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:(x1-1) inSection:(y1-1)];
+                        [indexPaths addObject:indexPath];
+                        self.indicator = @"X";
+                    }
+                    [self.collectionView reloadItemsAtIndexPaths:indexPaths];
+                    self.indicator = nil;
+                }
             }
             else{
                 [self triggerAlertWithString:@"invalid input. need 4 valid numbers within range"];
@@ -126,7 +158,6 @@
 }
 
 #pragma Mark collection view dataSource
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView {
     // _data is a class member variable that contains one array per section.
     return [self.canvasWidth integerValue];
@@ -137,11 +168,14 @@
 }
 
 #pragma Mark collection view delegate
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CanvasCollectionViewCell* newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell"
-                                                                                       forIndexPath:indexPath];
-    newCell.horOrVertLabel.text = nil;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CanvasCollectionViewCell* newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    if (!newCell) {
+        newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    }
+    newCell.horOrVertLabel.text = self.indicator;
+    
     return newCell;
 }
 @end
