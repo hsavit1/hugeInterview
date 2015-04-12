@@ -214,18 +214,29 @@
 //    NSLog(@"%li", (long)indexPath.item);
 //    NSLog(@"%li", (long)indexPath.section);
     
-    //the problem is that it cant find the cell!
+    //the problem is that it cant find the cell! [self.collectionView cellForItemAtIndexPath:indexPath] is returning nil at weird times
     
     //note: going by the initial instructions: the program works if i do this
-    //c 20 15 ----- instead of c 20 4. WHY
-    if(![((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text isEqualToString:@" "]){// && (currentColor != nil)) {
+    //c 20 11 ----- instead of c 20 4. WHY. It wont go for anything less than 11
+    
+//    NSArray *visible = [self.collectionView visibleCells];
+//    NSArray *indexPaths = [self.collectionView indexPathsForVisibleItems];
+    CanvaslCollectionViewCell * cell = (CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
+    if(![cell.letterLabel.text isEqualToString:@" "]){
+        
+//        for (NSIndexPath *ip in indexPaths) {
+//            if (ip == indexPath) {
+//                NSLog(@"HI");
+//            }
+//        }
+        
         return;
     }
     else if ([[self.collectionView cellForItemAtIndexPath:indexPath].reuseIdentifier isEqualToString:@"Xcell"]) {
         return;
     }
     
-    ((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text = b;
+    cell.letterLabel.text = b;
     
     NSIndexPath *west = [NSIndexPath indexPathForItem:(indexPath.item - 1) inSection:indexPath.section];
     [self floodFillWithColor:b indexPath:west];
