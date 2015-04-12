@@ -45,11 +45,22 @@
             [self triggerAlertWithString:@"Invalid input. Canvas can only have a width and a height"];
         }
         else{
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            CanvasViewController *cvc = [sb instantiateViewControllerWithIdentifier:@"canvas"];
-            cvc.canvasWidth = arr[0];
-            cvc.canvasHeight = arr[1];
-            [self.navigationController showViewController:cvc sender:self];
+            
+            int maxWidth =  (self.view.frame.size.width / 19);
+            int maxHeight = ((self.view.frame.size.height - 143) / 19);
+            if ([arr[0] integerValue] > maxWidth) {
+                [self triggerAlertWithString:@"Canvas width too much for this screen size"];
+            }
+            else if ([arr[1] integerValue] > maxHeight) {
+                [self triggerAlertWithString:@"Canvas height too much for this screen size"];
+            }
+            else{
+                UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                CanvasViewController *cvc = [sb instantiateViewControllerWithIdentifier:@"canvas"];
+                cvc.canvasWidth = arr[0];
+                cvc.canvasHeight = arr[1];
+                [self.navigationController showViewController:cvc sender:self];
+            }
         }
     }
     else if([operation isEqualToString:@"L"]){

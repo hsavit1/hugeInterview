@@ -12,6 +12,12 @@
 
 - (NSArray*)separateNumbers:(NSString*)text{
     NSArray * arr = [text componentsSeparatedByString:@" "];
+//    NSMutableArray *mArr = [[NSMutableArray alloc]init];
+//    for (NSString* s in arr) {
+//        if ([self checkIfNumericString:s]) {
+//            [mArr addObject:s];
+//        }
+//    }
     
     NSMutableArray *mArr = [[NSMutableArray alloc]initWithArray:arr];
     [mArr removeObjectAtIndex:0];
@@ -23,7 +29,6 @@
 
 - (NSString*)determineOperation:(NSString*)input{
     NSArray * arr = [input componentsSeparatedByString:@" "];
-
     return arr[0];
 }
 

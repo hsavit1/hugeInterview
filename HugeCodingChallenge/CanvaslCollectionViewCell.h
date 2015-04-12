@@ -10,4 +10,6 @@
 
 @interface CanvaslCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *letterLabel;
+
 @end
