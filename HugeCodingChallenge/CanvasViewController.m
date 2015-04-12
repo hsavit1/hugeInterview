@@ -106,13 +106,9 @@
                 NSMutableArray *indexPaths = [[NSMutableArray alloc]initWithObjects:nil];
                 for (y1; y1 <= y2; ++y1){
                     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:y1-1 inSection:x1-1];
-                    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
-                    
                     [indexPaths addObject:indexPath];
                     self.indicator = @"X";
                 }
-                //                    self.indexPathsSaved = indexPaths;
-                //                    [self.collectionView reloadData];
                 
                 [self.collectionView reloadItemsAtIndexPaths:indexPaths];
                 self.indicator = nil;
@@ -124,7 +120,6 @@
                     [indexPaths addObject:indexPath];
                     self.indicator = @"X";
                 }
-                //                    self.indexPathsSaved = indexPaths;
                 [self.collectionView reloadItemsAtIndexPaths:indexPaths];
                 self.indicator = nil;
             }
@@ -208,25 +203,14 @@
 }
 
 -(void)floodFillWithColor:(NSString*)b indexPath:(NSIndexPath*)indexPath{
-    //            Flood-fill (node, target-color, replacement-color):
-    //            1. if no CollectionViewCell, return
-    //            2. If target-color is equal to replacement-color, return.
-    //            3. If the color of node is not equal to target-color, return.
-    //            4. Set the color of node to replacement-color.
-    //            5. Perform Flood-fill (one step to the west of node, target-color, replacement-color).
-    //               Perform Flood-fill (one step to the east of node, target-color, replacement-color).
-    //               Perform Flood-fill (one step to the north of node, target-color, replacement-color).
-    //               Perform Flood-fill (one step to the south of node, target-color, replacement-color).
-    //            6. Return.
 
     //NSString* currentColor = ((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text;
     //NSLog(@"%@", currentColor);
     
-    
-    if ([self.collectionView cellForItemAtIndexPath:indexPath] == nil) {
-        return;
-    }
-    else if(![((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text isEqualToString:@""]){// && (currentColor != nil)) {
+//    if ([self.collectionView cellForItemAtIndexPath:indexPath] == nil) {
+//        return;
+//    }
+     if(![((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text isEqualToString:@""]){// && (currentColor != nil)) {
         return;
     }
     else if ([[self.collectionView cellForItemAtIndexPath:indexPath].reuseIdentifier isEqualToString:@"Xcell"]) {
@@ -288,6 +272,8 @@
     
     if([self.indicator isEqualToString:@"X"])
         newCell.letterLabel.text = self.indicator;
+    else
+        newCell.letterLabel.text = @"";
     
     return newCell;
 }

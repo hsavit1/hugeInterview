@@ -12,7 +12,16 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 
+/*!
+ @param cc - alert message
+ 
+ Trigger alert message
+ */
 - (void)triggerAlertWithString:(NSString*)string;
+
+/*!
+ Create canvas if everything checks out
+ */
 - (void)createCanvasCalculation;
 
 @end
