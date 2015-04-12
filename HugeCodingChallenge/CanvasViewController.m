@@ -162,6 +162,16 @@
         else{
             if ([cc checkIfBucketFillValid:arr withCanvasWidth:self.canvasWidth withCanvasHeight:self.canvasHeight]) {
                 
+                
+//                for (UICollectionViewCell* c in self.collectionView) {
+//                    if ([c.reuseIdentifier isEqualToString: @"cell"]) {
+//                        c.backgroundColor = [UIColor blueColor];
+//                    }
+//                }
+                
+                
+                
+                
             }
             else{
                 [self triggerAlertWithString:@"invalid input. need 2 valid numbers within range and 1 color"];

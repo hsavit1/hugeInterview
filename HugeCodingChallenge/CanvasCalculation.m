@@ -104,9 +104,11 @@
 - (BOOL)checkIfBucketFillValid:(NSArray *)arr withCanvasWidth:(NSNumber *)width withCanvasHeight:(NSNumber *)height{
 
     if ( [self stringIsNumeric:arr[0]] && [self stringIsNumeric:arr[1]]) {
-        
+        return YES;
     }
-    return NO;
+    else{
+        return NO;
+    }
 }
 
 
