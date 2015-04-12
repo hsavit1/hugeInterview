@@ -72,11 +72,13 @@
         [self triggerAlertWithString:@"Invalid input. Canvas can only have a width and a height"];
     }
     else{
-        if ([arr[0] integerValue] > 20) {
-            [self triggerAlertWithString:@"Canvas width too much"];
+        int maxWidth =  (self.view.frame.size.width / 18);
+        int maxHeight = ((self.view.frame.size.height - 143) / 19);
+        if ([arr[0] integerValue] > maxWidth) {
+            [self triggerAlertWithString:@"Canvas width too much for this screen size"];
         }
-        else if ([arr[1] integerValue] > 20) {
-            [self triggerAlertWithString:@"Canvas height too much"];
+        else if ([arr[1] integerValue] > maxHeight) {
+            [self triggerAlertWithString:@"Canvas height too much for this screen size"];
         }
         else{
             self.canvasWidth = arr[0];
@@ -207,28 +209,32 @@
 
 -(void)floodFillWithColor:(NSString*)b indexPath:(NSIndexPath*)indexPath{
     //            Flood-fill (node, target-color, replacement-color):
-    //            1. If target-color is equal to replacement-color, return.
-    //            2. If the color of node is not equal to target-color, return.
-    //            3. Set the color of node to replacement-color.
-    //            4. Perform Flood-fill (one step to the west of node, target-color, replacement-color).
+    //            1. if no CollectionViewCell, return
+    //            2. If target-color is equal to replacement-color, return.
+    //            3. If the color of node is not equal to target-color, return.
+    //            4. Set the color of node to replacement-color.
+    //            5. Perform Flood-fill (one step to the west of node, target-color, replacement-color).
     //               Perform Flood-fill (one step to the east of node, target-color, replacement-color).
     //               Perform Flood-fill (one step to the north of node, target-color, replacement-color).
     //               Perform Flood-fill (one step to the south of node, target-color, replacement-color).
-    //            5. Return.
+    //            6. Return.
 
-    NSString* currentColor = ((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text;
-    //1
-    if (![currentColor isEqualToString:@""]) {
+    //NSString* currentColor = ((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text;
+    //NSLog(@"%@", currentColor);
+    
+    
+    if ([self.collectionView cellForItemAtIndexPath:indexPath] == nil) {
         return;
     }
-    //2
+    else if(![((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text isEqualToString:@""]){// && (currentColor != nil)) {
+        return;
+    }
     else if ([[self.collectionView cellForItemAtIndexPath:indexPath].reuseIdentifier isEqualToString:@"Xcell"]) {
         return;
     }
-    //3
+    
     ((CanvaslCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath]).letterLabel.text = b;
     
-    //4
     NSIndexPath *west = [NSIndexPath indexPathForItem:(indexPath.item - 1) inSection:indexPath.section];
     [self floodFillWithColor:b indexPath:west];
     
@@ -241,7 +247,6 @@
     NSIndexPath *south = [NSIndexPath indexPathForItem:indexPath.item inSection:(indexPath.section + 1)];
     [self floodFillWithColor:b indexPath:south];
     
-    //5
     return;
 }
 
@@ -277,7 +282,7 @@
 }
 
 #pragma Mark collection view delegate
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CanvaslCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CanvaslCollectionViewCell* newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     

@@ -19,6 +19,8 @@
 		5CE757F81AD9A51F000E06D6 /* CanvasCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757F71AD9A51F000E06D6 /* CanvasCalculation.m */; };
 		5CE757FE1AD9DA97000E06D6 /* CheckIfValid.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE757FD1AD9DA97000E06D6 /* CheckIfValid.m */; };
 		5CE758011ADAE1DB000E06D6 /* CanvaslCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE758001ADAE1DB000E06D6 /* CanvaslCollectionViewCell.m */; };
+		5CE758031ADB189F000E06D6 /* TestCanvasValidations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE758021ADB189F000E06D6 /* TestCanvasValidations.m */; };
+		5CE758101ADB2077000E06D6 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE758051ADB2077000E06D6 /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,17 @@
 		5CE757FD1AD9DA97000E06D6 /* CheckIfValid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckIfValid.m; sourceTree = "<group>"; };
 		5CE757FF1ADAE1DB000E06D6 /* CanvaslCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvaslCollectionViewCell.h; sourceTree = "<group>"; };
 		5CE758001ADAE1DB000E06D6 /* CanvaslCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvaslCollectionViewCell.m; sourceTree = "<group>"; };
+		5CE758021ADB189F000E06D6 /* TestCanvasValidations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCanvasValidations.m; sourceTree = "<group>"; };
+		5CE758051ADB2077000E06D6 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		5CE758071ADB2077000E06D6 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		5CE758081ADB2077000E06D6 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		5CE758091ADB2077000E06D6 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		5CE7580A1ADB2077000E06D6 /* OCMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMLocation.h; sourceTree = "<group>"; };
+		5CE7580B1ADB2077000E06D6 /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
+		5CE7580C1ADB2077000E06D6 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		5CE7580D1ADB2077000E06D6 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		5CE7580E1ADB2077000E06D6 /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
+		5CE7580F1ADB2077000E06D6 /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CE758101ADB2077000E06D6 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				5CE757D91AD865B0000E06D6 /* HugeCodingChallengeTests.m */,
+				5CE758021ADB189F000E06D6 /* TestCanvasValidations.m */,
 				5CE757D71AD865B0000E06D6 /* Supporting Files */,
 			);
 			path = HugeCodingChallengeTests;
@@ -129,6 +144,7 @@
 		5CE757D71AD865B0000E06D6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5CE758041ADB2077000E06D6 /* OCMock */,
 				5CE757D81AD865B0000E06D6 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -174,6 +190,31 @@
 				5CE757FD1AD9DA97000E06D6 /* CheckIfValid.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		5CE758041ADB2077000E06D6 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				5CE758051ADB2077000E06D6 /* libOCMock.a */,
+				5CE758061ADB2077000E06D6 /* OCMock */,
+			);
+			path = OCMock;
+			sourceTree = SOURCE_ROOT;
+		};
+		5CE758061ADB2077000E06D6 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				5CE758071ADB2077000E06D6 /* NSNotificationCenter+OCMAdditions.h */,
+				5CE758081ADB2077000E06D6 /* OCMArg.h */,
+				5CE758091ADB2077000E06D6 /* OCMConstraint.h */,
+				5CE7580A1ADB2077000E06D6 /* OCMLocation.h */,
+				5CE7580B1ADB2077000E06D6 /* OCMMacroState.h */,
+				5CE7580C1ADB2077000E06D6 /* OCMock.h */,
+				5CE7580D1ADB2077000E06D6 /* OCMockObject.h */,
+				5CE7580E1ADB2077000E06D6 /* OCMRecorder.h */,
+				5CE7580F1ADB2077000E06D6 /* OCMStubRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CE758031ADB189F000E06D6 /* TestCanvasValidations.m in Sources */,
 				5CE757DA1AD865B0000E06D6 /* HugeCodingChallengeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +477,10 @@
 				);
 				INFOPLIST_FILE = HugeCodingChallengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCMock",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HugeCodingChallenge.app/HugeCodingChallenge";
 			};
@@ -450,6 +496,10 @@
 				);
 				INFOPLIST_FILE = HugeCodingChallengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCMock",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HugeCodingChallenge.app/HugeCodingChallenge";
 			};
