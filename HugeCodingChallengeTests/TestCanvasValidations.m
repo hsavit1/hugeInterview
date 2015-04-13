@@ -49,9 +49,7 @@
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-
 }
 
 - (void)testRecognizeCanvasInput {
@@ -78,7 +76,28 @@
     XCTAssertEqualObjects(@"B", returned, @"doesn't return valid expression to create bucket");
 }
 
+- (void)testRecognizeNumberSeparationForLine {
+    NSString *validCanvasInput = @"L 2 9 9 9";
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"2", @"9", @"9", nil] ;
+    NSArray *returned = [self.canvasCalc separateNumbers:validCanvasInput];
+    XCTAssertEqualObjects(validOutput, returned, @"doesn't return valid values for line input");
+}
 
+- (void)testRecognizeNumberSeparationForRect {
+    NSString *validCanvasInput = @"R 2 9 9 9";
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"2", @"9", @"9", nil] ;
+    NSArray *returned = [self.canvasCalc separateNumbers:validCanvasInput];
+    XCTAssertEqualObjects(validOutput, returned, @"doesn't return valid values for rect input");
+}
+
+- (void)testNumericStringMethod {
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"2", @"9", @"9", nil] ;
+    XCTAssertTrue([self.canvasCalc checkIfNumericString:validOutput] , @"numeric string method broken");
+}
+
+- (void)testLineIsValidMethod{
+    
+}
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
