@@ -47,8 +47,6 @@
     return !!number; // If the string numberic, return YES
 }
 
-
-
 //check if horizontal line / vertical line
 - (BOOL)checkIfLineValid:(NSArray*)arr withCanvasWidth:(NSNumber*)width withCanvasHeight:(NSNumber*)height{
     
@@ -66,11 +64,16 @@
         else if( [arr[3] integerValue] > [height integerValue]){
             return NO;
         }
+//        else if( ([arr[0] integerValue] != [arr[0] integerValue]) && ([arr[1] integerValue] != [arr[3] integerValue]) ){
+//            return NO;
+//        }
+        else{
+            return YES;
+        }
     }
     else{
         return NO;
     }
-    return YES;
 }
 
 -(BOOL)checkIfRectangleValid:(NSArray *)arr withCanvasWidth:(NSNumber*)width withCanvasHeight:(NSNumber*)height{

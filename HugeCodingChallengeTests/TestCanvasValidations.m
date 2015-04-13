@@ -13,12 +13,6 @@
 
 @interface TestCanvasValidations : XCTestCase
 
-@property (nonatomic, strong) NSString *sampleCanvas;
-@property (nonatomic, strong) NSString *sampleLine;
-@property (nonatomic, strong) NSString *sampleRect;
-@property (nonatomic, strong) NSString *sampleBucket;
-@property (nonatomic, strong) NSString *sample;
-
 @property (nonatomic, strong) CanvasCalculation *canvasCalc;
 
 @end
@@ -45,11 +39,17 @@
     [super setUp];
 //    self.sampleCanvas = @"One string, two string, three\n\nstring more. That's three. ... ,,, ;;;";
     self.canvasCalc = [[CanvasCalculation alloc] init];
-
 }
 
 - (void)tearDown {
     [super tearDown];
+}
+
+//canvas
+- (void)testRecognizeInvalidCanvasInput {
+    NSString *validCanvasInput = @"CX C 20 4";
+    NSString *returned = [self.canvasCalc determineOperation:validCanvasInput];
+    XCTAssertNotEqualObjects(@"C", returned, @"doesn't return valid expression to create canvas");
 }
 
 - (void)testRecognizeCanvasInput {
@@ -58,45 +58,72 @@
     XCTAssertEqualObjects(@"C", returned, @"doesn't return valid expression to create canvas");
 }
 
-- (void)testRecognizeLineInput {
+//line
+- (void)testRecognizeInvalidLine {
     NSString *validCanvasInput = @"L 2 9 9 9";
     NSString *returned = [self.canvasCalc determineOperation:validCanvasInput];
     XCTAssertEqualObjects(@"L", returned, @"doesn't return valid expression to create line");
 }
 
+- (void)testRecognizeNotRightSizeInput {
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"1", @"30", @"6", @"2", nil] ;
+    NSNumber *canvasWidth = [NSNumber numberWithInt:20];
+    NSNumber *canvasHeight = [NSNumber numberWithInt:20];
+    XCTAssertFalse([self.canvasCalc checkIfLineValid:validOutput withCanvasWidth:canvasWidth withCanvasHeight:canvasHeight], @"vinalid line input not showing false");
+}
+
+- (void)testLineIsValidMethod{
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"1", @"2", @"6", @"2", nil] ;
+    NSNumber *canvasWidth = [NSNumber numberWithInt:20];
+    NSNumber *canvasHeight = [NSNumber numberWithInt:20];
+    XCTAssertTrue([self.canvasCalc checkIfLineValid:validOutput withCanvasWidth:canvasWidth withCanvasHeight:canvasHeight], @"valid line input not showing true");
+}
+
+- (void)testRecognizeNumberSeparationForLine {
+    NSString *validCanvasInput = @"L 1 2 6 2";
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"1", @"2", @"6", @"2", nil] ;
+    NSArray *returned = [self.canvasCalc separateNumbers:validCanvasInput];
+    XCTAssertEqualObjects(validOutput, returned, @"doesn't return valid values for line input");
+}
+
+//rect
 - (void)testRecognizeRectInput {
     NSString *validCanvasInput = @"R 16 1 20 3";
     NSString *returned = [self.canvasCalc determineOperation:validCanvasInput];
     XCTAssertEqualObjects(@"R", returned, @"doesn't return valid expression to create rectangle");
 }
 
+- (void)testRecognizeNumberSeparationForRect {
+    NSString *validCanvasInput = @"R 16 1 20 3";
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"16", @"1", @"20", @"3", nil] ;
+    NSArray *returned = [self.canvasCalc separateNumbers:validCanvasInput];
+    XCTAssertEqualObjects(validOutput, returned, @"doesn't return valid values for rect input");
+}
+
+- (void)testRectIsValidMethod{
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"16", @"1", @"20", @"3", nil] ;
+    NSNumber *canvasWidth = [NSNumber numberWithInt:20];
+    NSNumber *canvasHeight = [NSNumber numberWithInt:20];
+    XCTAssertTrue([self.canvasCalc checkIfRectangleValid:validOutput withCanvasWidth:canvasWidth withCanvasHeight:canvasHeight], @"valid rext input not showing true");
+}
+
+//bucket
 - (void)testRecognizeBucketInput {
     NSString *validCanvasInput = @"B 10 3 o";
     NSString *returned = [self.canvasCalc determineOperation:validCanvasInput];
     XCTAssertEqualObjects(@"B", returned, @"doesn't return valid expression to create bucket");
 }
 
-- (void)testRecognizeNumberSeparationForLine {
-    NSString *validCanvasInput = @"L 2 9 9 9";
-    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"2", @"9", @"9", nil] ;
-    NSArray *returned = [self.canvasCalc separateNumbers:validCanvasInput];
-    XCTAssertEqualObjects(validOutput, returned, @"doesn't return valid values for line input");
-}
-
-- (void)testRecognizeNumberSeparationForRect {
-    NSString *validCanvasInput = @"R 2 9 9 9";
-    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"2", @"9", @"9", nil] ;
-    NSArray *returned = [self.canvasCalc separateNumbers:validCanvasInput];
-    XCTAssertEqualObjects(validOutput, returned, @"doesn't return valid values for rect input");
+- (void)testBucketIsValidMethod{
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"10", @"3", @"o", nil] ;
+    NSNumber *canvasWidth = [NSNumber numberWithInt:20];
+    NSNumber *canvasHeight = [NSNumber numberWithInt:20];
+    XCTAssertTrue([self.canvasCalc checkIfBucketFillValid:validOutput withCanvasWidth:canvasWidth withCanvasHeight:canvasHeight], @"valid bucket input not showing true");
 }
 
 - (void)testNumericStringMethod {
     NSArray *validOutput = [[NSArray alloc]initWithObjects:@"2", @"9", @"9", nil] ;
     XCTAssertTrue([self.canvasCalc checkIfNumericString:validOutput] , @"numeric string method broken");
-}
-
-- (void)testLineIsValidMethod{
-    
 }
 
 - (void)testPerformanceExample {
