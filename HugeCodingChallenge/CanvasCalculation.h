@@ -11,11 +11,15 @@
 @interface CanvasCalculation : NSObject
 
 - (NSArray*)separateNumbers:(NSString*)text;
+
 - (NSString*)determineOperation:(NSString*)input;
+
 - (BOOL)checkIfNumericString:(NSArray*)arr;
 
 - (BOOL)checkIfLineValid:(NSArray*)arr withCanvasWidth:(NSNumber*)width withCanvasHeight:(NSNumber*)height;
+
 - (BOOL)checkIfRectangleValid:(NSArray*)arr withCanvasWidth:(NSNumber*)width withCanvasHeight:(NSNumber*)height;
+
 - (BOOL)checkIfBucketFillValid:(NSArray*)arr withCanvasWidth:(NSNumber*)width withCanvasHeight:(NSNumber*)height;
 
 @end

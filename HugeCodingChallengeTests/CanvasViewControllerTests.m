@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "CanvasViewController.h"
+//#import "OCMock.h"
 
-@interface HugeCodingChallengeTests : XCTestCase
+@interface CanvasViewControllerTests : XCTestCase
+
+@property (nonatomic, strong) CanvasViewController *cvc;
 
 @end
 
-@implementation HugeCodingChallengeTests
+@implementation CanvasViewControllerTests
 
 //XCTFail (format…)
 //XCTAssertNil (a1, format…)
@@ -52,4 +56,6 @@
         // Put the code you want to measure the time of here.
     }];
 }
+
+
 @end
