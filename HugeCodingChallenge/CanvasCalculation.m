@@ -12,13 +12,7 @@
 
 - (NSArray*)separateNumbers:(NSString*)text{
     NSArray * arr = [text componentsSeparatedByString:@" "];
-//    NSMutableArray *mArr = [[NSMutableArray alloc]init];
-//    for (NSString* s in arr) {
-//        if ([self checkIfNumericString:s]) {
-//            [mArr addObject:s];
-//        }
-//    }
-    
+
     NSMutableArray *mArr = [[NSMutableArray alloc]initWithArray:arr];
     [mArr removeObjectAtIndex:0];
     
@@ -30,6 +24,17 @@
 - (NSString*)determineOperation:(NSString*)input{
     NSArray * arr = [input componentsSeparatedByString:@" "];
     return arr[0];
+}
+
+-(BOOL)checkIfNegativeInput:(NSArray*)arr{
+    
+    for (NSString *s in arr) {
+        if ([s integerValue] <= 0) {
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 -(BOOL)checkIfNumericString:(NSArray*)arr{
@@ -64,9 +69,12 @@
         else if( [arr[3] integerValue] > [height integerValue]){
             return NO;
         }
-//        else if( ([arr[0] integerValue] != [arr[0] integerValue]) && ([arr[1] integerValue] != [arr[3] integerValue]) ){
-//            return NO;
-//        }
+        else if( ([arr[0] integerValue] != [arr[2] integerValue]) && ([arr[1] integerValue] != [arr[3] integerValue]) ){
+            return NO;
+        }
+        else if (![self checkIfNegativeInput:arr]){
+            return NO;
+        }
         else{
             return YES;
         }
@@ -98,6 +106,9 @@
         else if( [arr[1] integerValue] > [arr[3] integerValue] ) {
             return NO;
         }
+        else if (![self checkIfNegativeInput:arr]){
+            return NO;
+        }
         else{
             return YES;
         }
@@ -111,14 +122,15 @@
 
 - (BOOL)checkIfBucketFillValid:(NSArray *)arr withCanvasWidth:(NSNumber *)width withCanvasHeight:(NSNumber *)height{
 
-    if ( [self stringIsNumeric:arr[0]] && [self stringIsNumeric:arr[1]]) {
-        return YES;
+    if ( ![self stringIsNumeric:arr[0]] && ![self stringIsNumeric:arr[1]]) {
+        return NO;
+    }
+    else if (![self checkIfNegativeInput:arr]){
+        return NO;
     }
     else{
         return NO;
     }
 }
-
-
 
 @end

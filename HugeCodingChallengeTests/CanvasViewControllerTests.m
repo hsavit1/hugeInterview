@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "CanvasViewController.h"
+#import "CanvasCalculation.h"
 //#import "OCMock.h"
 
 @interface CanvasViewControllerTests : XCTestCase
 
 @property (nonatomic, strong) CanvasViewController *cvc;
+@property (nonatomic, strong) CanvasCalculation *cc;
 
 @end
 
@@ -37,7 +39,8 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.cvc = [sb instantiateViewControllerWithIdentifier:@"cvc"];
 }
 
 - (void)tearDown {

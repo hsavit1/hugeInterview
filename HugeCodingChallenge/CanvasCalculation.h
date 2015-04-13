@@ -22,5 +22,7 @@
 
 - (BOOL)checkIfBucketFillValid:(NSArray*)arr withCanvasWidth:(NSNumber*)width withCanvasHeight:(NSNumber*)height;
 
+- (BOOL)checkIfNegativeInput:(NSArray*)arr;
+
 @end
 

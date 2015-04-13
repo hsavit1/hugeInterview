@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ia4-Ye-ijs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -263,15 +264,15 @@ programs.
                                 <exclude reference="8nW-ym-C5T"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Wuv-sm-5QQ"/>
                                 <exclude reference="POn-Av-ZGS"/>
                                 <exclude reference="iSs-5N-YQb"/>
-                                <exclude reference="VYB-qk-ts6"/>
-                                <exclude reference="Zrk-tg-S76"/>
-                                <exclude reference="krH-Yi-FyN"/>
                                 <exclude reference="Bzi-Jy-49f"/>
                                 <exclude reference="Mgd-lB-WPW"/>
                                 <exclude reference="YFK-t3-CVf"/>
-                                <exclude reference="Wuv-sm-5QQ"/>
+                                <exclude reference="VYB-qk-ts6"/>
+                                <exclude reference="Zrk-tg-S76"/>
+                                <exclude reference="krH-Yi-FyN"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -281,15 +282,15 @@ programs.
                                 <include reference="8nW-ym-C5T"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Wuv-sm-5QQ"/>
                                 <include reference="POn-Av-ZGS"/>
                                 <include reference="iSs-5N-YQb"/>
-                                <include reference="VYB-qk-ts6"/>
-                                <include reference="Zrk-tg-S76"/>
-                                <include reference="krH-Yi-FyN"/>
                                 <include reference="Bzi-Jy-49f"/>
                                 <include reference="Mgd-lB-WPW"/>
                                 <include reference="YFK-t3-CVf"/>
-                                <include reference="Wuv-sm-5QQ"/>
+                                <include reference="VYB-qk-ts6"/>
+                                <include reference="Zrk-tg-S76"/>
+                                <include reference="krH-Yi-FyN"/>
                             </mask>
                         </variation>
                     </view>
@@ -305,7 +306,7 @@ programs.
         <!--Add More Instructions-->
         <scene sceneID="uIn-3B-Em1">
             <objects>
-                <viewController storyboardIdentifier="canvas" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3K4-RD-two" customClass="CanvasViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cvc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3K4-RD-two" customClass="CanvasViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="69d-gh-wXE"/>
                         <viewControllerLayoutGuide type="bottom" id="q9b-3r-vd8"/>
@@ -412,13 +413,13 @@ programs.
                             <mask key="constraints">
                                 <exclude reference="KfJ-Bc-kXv"/>
                                 <exclude reference="cHM-Jg-w3d"/>
-                                <exclude reference="CMD-3x-00T"/>
-                                <exclude reference="WQi-U6-2eD"/>
-                                <exclude reference="j2R-0l-UOh"/>
+                                <exclude reference="yfg-5b-SaP"/>
                                 <exclude reference="AaE-Fs-I3f"/>
                                 <exclude reference="qy0-Xz-MbN"/>
                                 <exclude reference="xId-SM-TzY"/>
-                                <exclude reference="yfg-5b-SaP"/>
+                                <exclude reference="CMD-3x-00T"/>
+                                <exclude reference="WQi-U6-2eD"/>
+                                <exclude reference="j2R-0l-UOh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -430,13 +431,13 @@ programs.
                             <mask key="constraints">
                                 <include reference="KfJ-Bc-kXv"/>
                                 <include reference="cHM-Jg-w3d"/>
-                                <include reference="CMD-3x-00T"/>
-                                <include reference="WQi-U6-2eD"/>
-                                <include reference="j2R-0l-UOh"/>
+                                <include reference="yfg-5b-SaP"/>
                                 <include reference="AaE-Fs-I3f"/>
                                 <include reference="qy0-Xz-MbN"/>
                                 <include reference="xId-SM-TzY"/>
-                                <include reference="yfg-5b-SaP"/>
+                                <include reference="CMD-3x-00T"/>
+                                <include reference="WQi-U6-2eD"/>
+                                <include reference="j2R-0l-UOh"/>
                             </mask>
                         </variation>
                     </view>

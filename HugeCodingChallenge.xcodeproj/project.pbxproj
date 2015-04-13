@@ -139,15 +139,23 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
+		5C294F421ADB5E1300A921B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C294F3C1ADB5A9B00A921B8 /* usr */,
+				5C294F401ADB5AFB00A921B8 /* Foundation.framework */,
+				5C294F3E1ADB5AF200A921B8 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5CE757B11AD865B0000E06D6 = {
 			isa = PBXGroup;
 			children = (
-				5C294F401ADB5AFB00A921B8 /* Foundation.framework */,
-				5C294F3E1ADB5AF200A921B8 /* UIKit.framework */,
 				5CE757BC1AD865B0000E06D6 /* HugeCodingChallenge */,
 				5CE757D61AD865B0000E06D6 /* HugeCodingChallengeTests */,
 				5CE757BB1AD865B0000E06D6 /* Products */,
-				5C294F3C1ADB5A9B00A921B8 /* usr */,
+				5C294F421ADB5E1300A921B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

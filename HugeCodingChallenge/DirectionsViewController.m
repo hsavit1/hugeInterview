@@ -53,6 +53,12 @@
             else if ([arr[1] integerValue] > maxHeight) {
                 [self triggerAlertWithString:@"Canvas height too much for this screen size"];
             }
+            else if ([arr[0] integerValue] <= 0){
+                [self triggerAlertWithString:@"Canvas must be larger"];
+            }
+            else if ([arr[1] integerValue] <= 0){
+                [self triggerAlertWithString:@"Canvas must be larger"];
+            }
             else{
                 UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 CanvasViewController *cvc = [sb instantiateViewControllerWithIdentifier:@"canvas"];

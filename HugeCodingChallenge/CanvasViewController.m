@@ -71,6 +71,12 @@
     if (arr.count != 2) {
         [self triggerAlertWithString:@"Invalid input. Canvas can only have a width and a height"];
     }
+    else if ([arr[0] integerValue] <= 0){
+        [self triggerAlertWithString:@"Canvas must be larger"];
+    }
+    else if ([arr[1] integerValue] <= 0){
+        [self triggerAlertWithString:@"Canvas must be larger"];
+    }
     else{
         int maxWidth =  (self.view.frame.size.width / 18);
         int maxHeight = ((self.view.frame.size.height - 143) / 19);

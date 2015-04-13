@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "CanvasCalculation.h"
-//#import "OCMock.h"
 
 @interface TestCanvasValidations : XCTestCase
 
@@ -45,6 +44,11 @@
     [super tearDown];
 }
 
+- (void)testNumericStringMethod {
+    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"2", @"9", @"9", nil] ;
+    XCTAssertTrue([self.canvasCalc checkIfNumericString:validOutput] , @"numeric string method broken");
+}
+
 //canvas
 - (void)testRecognizeInvalidCanvasInput {
     NSString *validCanvasInput = @"CX C 20 4";
@@ -56,6 +60,11 @@
     NSString *validCanvasInput = @"C 20 4";
     NSString *returned = [self.canvasCalc determineOperation:validCanvasInput];
     XCTAssertEqualObjects(@"C", returned, @"doesn't return valid expression to create canvas");
+}
+
+- (void)testRecognizeNegativeNumberCanvasInput {
+    NSArray *inVvalidCanvasInput = [[NSArray alloc]initWithObjects:@"C", @"-20", @"4", nil];
+    XCTAssertFalse([self.canvasCalc checkIfNegativeInput:inVvalidCanvasInput], @"doesn't return valid expression to create canvas");
 }
 
 //line
@@ -84,6 +93,11 @@
     NSArray *validOutput = [[NSArray alloc]initWithObjects:@"1", @"2", @"6", @"2", nil] ;
     NSArray *returned = [self.canvasCalc separateNumbers:validCanvasInput];
     XCTAssertEqualObjects(validOutput, returned, @"doesn't return valid values for line input");
+}
+
+- (void)testRecognizeNegativeNumberLineInput {
+    NSArray *inValidInput = [[NSArray alloc]initWithObjects:@"-1", @"2", @"6", @"2", nil] ;
+    XCTAssertFalse([self.canvasCalc checkIfNegativeInput:inValidInput], @"doesn't return valid expression to create canvas");
 }
 
 //rect
@@ -121,10 +135,6 @@
     XCTAssertTrue([self.canvasCalc checkIfBucketFillValid:validOutput withCanvasWidth:canvasWidth withCanvasHeight:canvasHeight], @"valid bucket input not showing true");
 }
 
-- (void)testNumericStringMethod {
-    NSArray *validOutput = [[NSArray alloc]initWithObjects:@"2", @"9", @"9", nil] ;
-    XCTAssertTrue([self.canvasCalc checkIfNumericString:validOutput] , @"numeric string method broken");
-}
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
